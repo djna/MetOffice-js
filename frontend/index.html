@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" layout:decorate="layout">
+
+<head>
+  <meta charset="utf-8">
+  <title>MET Office Weather forecast</title>
+  <link rel="stylesheet" href="bootstrap.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <script src="forecast.js"></script>
+</head>
+
+<body>
+  <script src="/navbar.js"></script>
+  <div layout:fragment="content" class="container body-content">
+    <form action="javascript:void(0)" onsubmit="onSubmit(this);">
+      <h1>Enter location:</h1>
+      <input type="text" name="location">
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+  <div layout:fragment="content" id="results">
+  </div>
+</body>
+
+</html>
