@@ -5,17 +5,16 @@ import process from  'process';
 
 import SitelistApiClient from './apiClients/sitelistApiClient.js'
 
-let [node, app, chosenLocation = "Cambridge", ...ignored] = process.argv;
+let [node, app, chosenLocation = "Cambridge"] = process.argv;
 
 console.log("Location ", chosenLocation);
 
 let client = new SitelistApiClient();
 
-client.getLocations().then ( locations =>
-    findLocation(locations)
-    ).catch(
-        (e) => reportError(e)
-    )
+try {
+    const locations = await client.getLocations();
+    findLocation(locations);
+} catch ( e ) {reportError(e); }
 
 function findLocation(locationList){
     console.log("Locations: ", locationList.length);

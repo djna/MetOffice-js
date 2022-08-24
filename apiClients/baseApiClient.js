@@ -18,6 +18,7 @@ export default class BaseApiClient {
             parameters = [];
         }
 
-        return axios.get(this.requestUrl(endpoint, parameters) );
+        let response = await axios.get(this.requestUrl(endpoint, parameters) );
+        return response.data;
     }
 }
