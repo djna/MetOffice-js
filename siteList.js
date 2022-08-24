@@ -13,6 +13,8 @@ let client = new SitelistApiClient();
 
 client.getLocations().then ( locations =>
     findLocation(locations)
+    ).catch(
+        (e) => reportError(e)
     )
 
 function findLocation(locationList){
@@ -21,4 +23,8 @@ function findLocation(locationList){
     console.log("Chosen Location ", chosenLocation, 
          chosenLocationDetails ? chosenLocationDetails : "not found"
     )
+}
+
+function reportError(e){
+    console.log("Error " + e);
 }

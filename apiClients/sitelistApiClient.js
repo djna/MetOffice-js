@@ -4,7 +4,17 @@ const ENDPOINT = 'sitelist';
 
 export default class SitelistApiClient extends BaseApiClient {
     async getLocations() {
-        const body = await this.makeRequest(ENDPOINT);
-        return body.Locations.Location;
+        
+        return new Promise(
+            (resolve, reject) => {
+                const requestPromise = this.makeRequest(ENDPOINT);
+                requestPromise.then(
+                    (body) => {
+                        resolve(body.data.Locations.Location);
+                    }
+                ).catch (e =>  reject(e) );
+            }
+        );
+        
     }
 }
