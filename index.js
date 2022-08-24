@@ -16,6 +16,8 @@ const app = express();
 const port = 3000;
 
 app.use(express.static('frontend'));
+app.use(express.static('widget'));
+app.use('/widget', express.static('widget/index.html'));
 
 app.use('/global_warming', express.static('frontend/global_warming.html'));
 
