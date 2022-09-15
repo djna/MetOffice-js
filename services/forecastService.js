@@ -11,7 +11,7 @@ export default class ForecastService {
     }
 
     forecastFromLocationList(locationName, locationList){
-
+        // find id of requested location, then we can request forecast
         const locationFound = locationList.find(location => location.name == locationName);
         if (locationFound === undefined) {
             throw locationName + ' not found';

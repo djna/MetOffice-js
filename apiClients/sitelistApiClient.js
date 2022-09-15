@@ -5,11 +5,7 @@ const ENDPOINT = 'sitelist';
 export default class SitelistApiClient extends BaseApiClient {
     getLocations() {
         return this.makeRequest(ENDPOINT).then ( 
-            body =>  {
-                
-                return body.Locations.Location;
-            }
-            );
-        
+                body =>  body.Locations.Location              
+            );  
     }
 }

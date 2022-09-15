@@ -17,8 +17,7 @@ export default class BaseApiClient {
             if (parameters === undefined) {
                 parameters = [];
             }
-            return axios.get(this.requestUrl(endpoint, parameters)).then(
-                
+            return axios.get(this.requestUrl(endpoint, parameters)).then(              
                 result => {
                     return result.data;
                 }

@@ -5,8 +5,9 @@ const THREE_HOURLY_PARAMETERS = [
 ];
 
 export default class ForecastApiClient extends BaseApiClient {
-    async getForecastForLocation(locationId) {
-        const body = await this.makeRequest(locationId, THREE_HOURLY_PARAMETERS);
-        return body.SiteRep.DV.Location;
+    getForecastForLocation(locationId) {
+        return this.makeRequest(locationId, THREE_HOURLY_PARAMETERS).then(
+            body =>  body.SiteRep.DV.Location
+        )
     }
 }
