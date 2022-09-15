@@ -14,11 +14,10 @@ export default class SitelistApiClient {
         requestUrl.searchParams.append("key", API_KEY);
         return requestUrl.href;
     }
+
     getLocations() {
             return axios.get(this.requestUrl('sitelist')).then(              
-                result => {
-                    return  result.data.Locations.Location;
-                }
+                result => result.data.Locations.Location
             );
     }
 }
