@@ -1,5 +1,5 @@
 import { URL } from 'url';
-import got from 'got';
+import axios from 'axios';
 
 const BASE_URL = 'http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/json/';
 const API_KEY = 'bf5f5026-1766-49c3-9d9f-aff7ae95a8e6';
@@ -12,11 +12,19 @@ export default class BaseApiClient {
         return requestUrl.href;
     }
 
-    async makeRequest(endpoint, parameters) {
-        if (parameters === undefined) {
-            parameters = [];
-        }
-        const body = await got(this.requestUrl(endpoint, parameters)).json();
-        return body;
+    makeRequest(endpoint, parameters) {
+        
+            if (parameters === undefined) {
+                parameters = [];
+            }
+            return axios.get(this.requestUrl(endpoint, parameters)).then(
+                
+                result => {
+                    return result.data;
+                }
+            );
+            
+         
+        
     }
 }

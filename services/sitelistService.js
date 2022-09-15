@@ -4,7 +4,7 @@ export default class SitelistService {
         this.cachedLocations = undefined;
     }
 
-    async getLocations() {
+    getLocations() {
         if (this.cachedLocations != undefined) {
             return this.cachedLocations;
         }

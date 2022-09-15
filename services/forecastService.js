@@ -4,9 +4,15 @@ export default class ForecastService {
         this.forecastApiClient = forecastApiClient;
     }
 
-    async getForecastForLocation(locationName) {
-        const locations = await this.sitelistService.getLocations();
-        const locationFound = locations.find(location => location.name == locationName);
+    getForecastForLocation(locationName) {
+        return this.sitelistService.getLocations().then(
+            locations => this.forecastFromLocationList( locationName, locations)
+        )
+    }
+
+    forecastFromLocationList(locationName, locationList){
+
+        const locationFound = locationList.find(location => location.name == locationName);
         if (locationFound === undefined) {
             throw locationName + ' not found';
         }
