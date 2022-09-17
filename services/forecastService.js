@@ -10,7 +10,6 @@ export default class ForecastService {
         if (locationFound === undefined) {
             throw locationName + ' not found';
         }
-        const forecast = this.forecastApiClient.getForecastForLocation(locationFound.id);
-        return forecast;
+        return this.forecastApiClient.getForecastForLocation(locationFound.id);
     }
 }

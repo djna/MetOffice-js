@@ -12,7 +12,6 @@ export default class ConsoleRunner {
 
     handleError(reason) {
         console.error('\n' + reason);
-        this.runForever();
     }
 
     promptForLocation() {
@@ -34,13 +33,28 @@ export default class ConsoleRunner {
         });
     }
 
-    runForever() {
-        this.promptForLocation()
-            .then(location => this.forecastService.getForecastForLocation(location.replace(/\s/g, '')))
-            .then(forecast => {
-                this.displayForecast(forecast);
-                this.runForever();
-            })
-            .catch(reason => this.handleError(reason));
+    async runUntilStop() {
+        let stopRequested = false;
+
+        while ( !stopRequested){
+            stopRequested = await this.getOneForecast();
+        }
+
+        return;
+    }
+    async getOneForecast(){ 
+        try {
+            let location = await this.promptForLocation();
+            if (location === "q"){
+                return true;
+            }
+            let forecast = await this.forecastService.getForecastForLocation(
+                                       location.replace(/\s/g, ''));
+            
+            this.displayForecast(forecast);
+        } catch(reason) {
+            this.handleError(reason);
+            return false;
+        } 
     }
 }

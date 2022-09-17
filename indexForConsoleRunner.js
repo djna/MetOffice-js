@@ -9,4 +9,7 @@ const sitelistService = new SitelistService(sitelistApiClient);
 const forecastApiClient = new ForecastApiClient();
 const forecastService = new ForecastService(sitelistService, forecastApiClient);
 const consoleRunner = new ConsoleRunner(forecastService);
-consoleRunner.runForever();
+
+await consoleRunner.runUntilStop();
+console.log("Exiting as requested");
+process.exit(0);
