@@ -25,7 +25,7 @@ app.get('/forecast', async (req, res) => {
     const userLocation = req.query.location;
     forecastService.getForecastForLocation(userLocation.replace(/\s/g, ''))
         .then(forecast => {
-            res.send(forecast);
+            res.json(forecast);
         })
         .catch(reason => res.status(400).send(reason));
 })

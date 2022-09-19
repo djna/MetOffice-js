@@ -42,6 +42,10 @@ td {
   color : greenyellow;
 }
 
+h3 {
+  color : greenyellow;
+}
+
 input[type=text] {
   animation: 1s ease 0s 1 slideIn;
   width: 250px;
