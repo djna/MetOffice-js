@@ -6,7 +6,47 @@
   <title>MET Office Weather forecast</title>
   <link rel="stylesheet" href="bootstrap.min.css">
   <link rel="stylesheet" href="styles.css">
-  <script src="forecast.js"></script>
+  <script type="module" src="forecast.js"></script>
+  <script id="template" type="x-tmpl-mustache">
+    {{#Period}}
+    
+    <table class="table table-hover"><thead class="thead-light">
+      <tr>
+        <td colspan="4" >
+        <td colspan="3" class="periodDate" >{{value}}</td>
+        <td colspan="4" >
+      </tr>
+      <tr>
+          <th scope="col">Time</th>
+          <th scope="col">Feels like</th>
+          <th scope="col">Wind gust</th>
+          <th scope="col">Relative humidity</th>
+          <th scope="col">Temperature</th>
+          <th scope="col">Visibility</th>
+          <th scope="col">Wind direction</th>
+          <th scope="col">Wind speed</th>
+          <th scope="col">Max UV</th>
+          <th scope="col">Weather type</th>
+          <th scope="col">Precipitation probability</th>
+      </tr>
+      {{#Rep}}
+      <tr>
+        <th scope="row">{{$hr}}:00</th>
+        <td>{{F}}</td>
+        <td>{{G}}</td>
+        <td>{{H}}</td>
+        <td>{{T}}</td>
+        <td>{{V}}</td>
+        <td>{{D}}</td>
+        <td>{{S}}</td>
+        <td>{{U}}</td>
+        <td>{{W}}</td>
+        <td>{{Pp}}</td>
+      </tr>
+      {{/Rep}}
+      </thead><tbody>
+    {{/Period}}
+  </script>
 </head>
 
 <body>

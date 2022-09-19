@@ -42,6 +42,14 @@ td {
   color : greenyellow;
 }
 
+.periodDate {
+  color : greenyellow;
+}
+
+table {
+  margin-top: 2rem;
+}
+
 input[type=text] {
   animation: 1s ease 0s 1 slideIn;
   width: 250px;
