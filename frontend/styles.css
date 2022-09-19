@@ -38,8 +38,42 @@ p {
   color: white;
 }
 
+
+
 td {
   color : greenyellow;
+}
+
+td.feelColor11 {
+  color : rgb(218, 235, 241);
+}
+
+td.feelColor11 {
+  color : lightblue;
+}
+
+td.feelColor12 {
+  color : rgb(65, 160, 191);
+}
+
+td.feelColor13 {
+  color : palegoldenrod;
+}
+
+td.feelColor14 {
+  color : yellow;
+}
+
+td.feelColor15 {
+  color : orange;
+}
+
+td.feelColor16 {
+  color : orangered;
+}
+
+td.feelColor17 {
+  color : red;
 }
 
 .periodDate {

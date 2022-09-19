@@ -29,7 +29,11 @@ function updateResults(location) {
                 responseJson.Period.forEach(
                     (period) => {
                         period.Rep.forEach(
-                            rep => rep.$hr = rep.$/60
+                            rep => {
+                                rep.$hr = rep.$/60;
+                                rep.Fclass = "feelColor" + rep.F;
+                            }
+                            
                         )
                     }
                 );
