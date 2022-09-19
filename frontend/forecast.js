@@ -11,9 +11,9 @@ function updateHtmlWithError(response) {
     document.getElementById('results').innerHTML = `<h2>Error</h2>${response}`
 }
 
-function updateHtmlWithResults(responseJson) {
-    var template = document.getElementById('template').innerHTML;
-    var rendered = Mustache.render(template, responseJson );
+async function updateHtmlWithResults(responseJson) {
+    const template = await fetch('forecast.mustache').then(response => response.text());
+    let rendered = Mustache.render(template, responseJson );
     document.getElementById('results').innerHTML = rendered;
 }
 
