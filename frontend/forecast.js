@@ -50,6 +50,10 @@ function onSubmit(form) {
     updateResults(location);
 }
 
+// this is a module, so onSubmit not visible to html
+// one workaround, make globally available at expense of polluting global namespace
 window.onSubmit = onSubmit;
 
-//document.querySelector('#locationForm').addEventListener("Form", onSubmit);
+// this would be better but we the form data is not conveniently in form.location
+// too much hassle to select our data from DOM
+//document.querySelector('#locationForm').addEventListener("submit", onSubmit);
