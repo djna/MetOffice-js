@@ -11,12 +11,10 @@ export default class ForecastService {
     }
 
     forecastFromLocationList(locationName, locationList){
-        // find id of requested location, then we can request forecast
-        const locationFound = locationList.find(location => location.name == locationName);
-        if (locationFound === undefined) {
-            throw locationName + ' not found';
-        }
-        const forecast = this.forecastApiClient.getForecastForLocation(locationFound.id);
+        // TODO find locationList item with locationName, hence get the id
+        
+        // use the id we just obtained to get forecast
+        const forecast = this.forecastApiClient.getForecastForLocation(locationId);
         return forecast;
     }
 }

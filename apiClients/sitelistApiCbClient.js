@@ -1,7 +1,6 @@
 
-// example of a REST call
+// site list client using callbacks
 
-// We should refactor the URL assembly code so that all our calls can use ut
 import { URL } from 'url';
 import request from 'request';
 

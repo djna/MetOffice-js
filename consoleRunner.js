@@ -21,17 +21,8 @@ export default class ConsoleRunner {
         );
     }
     
-    displayReps(reps) {
-        reps.forEach(rep => 
-            console.log(`  Time:${rep.$ / 60}:00 D:${rep.D} F:${rep.F} G:${rep.G} H:${rep.H} Pp:${rep.Pp} S:${rep.S} T:${rep.T} V:${rep.V} W:${rep.W} U:${rep.U}`)
-        );
-    }
-
     displayForecast(forecast) {
-        forecast.Period.forEach(period => {
-            console.log(`\nDate: ${period.value}`);
-            this.displayReps(period.Rep);
-        });
+        // TODO:3 implement Display forecast
     }
 
     runForever() {
