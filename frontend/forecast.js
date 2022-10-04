@@ -20,7 +20,8 @@ async function updateHtmlWithResults(responseJson) {
 
 
 function updateResults(location) {
-    fetch(`http://localhost:3000/forecast?location=${location}`)
+    // relative URL, use server that served browser app, then works in GitPod
+    fetch(`/forecast?location=${location}`)
         .then(async response => {
             console.log(response.status, response.statusText);
             var responseJson = await response.json();
