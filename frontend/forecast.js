@@ -33,7 +33,6 @@ function updateResults(location) {
                         period.Rep.forEach(
                             rep => {
                                 rep.$hr = rep.$/60;
-                                rep.Fclass = "feelColor" + rep.F;
                             }
                             
                         )
