@@ -17,15 +17,10 @@ const port = 3000;
 
 app.use(express.static('frontend'));
 
-app.use('/global_warming', express.static('frontend/global_warming.html'));
-
 app.get('/forecast', async (req, res) => {
     const userLocation = req.query.location;
-    forecastService.getForecastForLocation(userLocation.replace(/\s/g, ''))
-        .then(forecast => {
-            res.send(forecast);
-        })
-        .catch(reason => res.status(400).send(reason));
+    console.log("get forecast for ", userLocation);
+    res.send("Not yet implemented");
 })
 
 app.listen(port, () => {
