@@ -18,11 +18,13 @@ export default class SitelistApiClient {
         request(this.requestUrl('sitelist'), 
             function (error, response, body) {
                 if ( error) {
-                    errHandler(error);
-                }
-                
-                let result = JSON.parse(body);
-                callback( result.Locations.Location); 
+                    if (errHandler){
+                        errHandler(error);
+                    }
+                } else {
+                    let result = JSON.parse(body);
+                    callback( result.Locations.Location);
+                }         
            }
       );
         
