@@ -34,6 +34,10 @@ h2 {
   font-weight: bold;
 }
 
+td {
+  color : greenyellow;
+}
+
 p {
   color: white;
 }
